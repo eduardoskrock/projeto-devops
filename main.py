@@ -8,4 +8,4 @@ async def root():
 
 @app.get("/teste1")
 async def funcaoteste():
-    return {"teste": "deu certo"}
+    return {"teste": True, "num_aleatorio": random.randint(0, 100)}
