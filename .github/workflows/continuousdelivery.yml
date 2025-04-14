@@ -4,7 +4,7 @@ on:
     branches:
       - main # ou qualquer outra branch
 jobs:
-  deliver :
+  deliver:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
