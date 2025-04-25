@@ -16,7 +16,6 @@ jobs:
         with:
           linter: pylint
 
-
   docker:
     runs-on: ubuntu-latest
     steps:
@@ -28,3 +27,14 @@ jobs:
         # https://github.com/docker/setup-qemu-action
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
+
+  git:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Run Discord Webhook
+      uses: johnnyhuy/actions-discord-git-webhook@main
+      with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
