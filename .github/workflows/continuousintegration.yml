@@ -27,7 +27,6 @@ jobs:
         # https://github.com/docker/setup-qemu-action
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-
   discord:
     runs-on: ubuntu-latest
     steps:
