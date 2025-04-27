@@ -2,29 +2,26 @@ from fastapi import FastAPI
 import random
 
 app = FastAPI()
-
-
 # main.py
-
-def somar(a, b):
+async def somar(a, b):
     return a + b
 
 
-def subtrair(a, b):
+async def subtrair(a, b):
     return a - b
 
 
-def multiplicar(a, b):
+async def multiplicar(a, b):
     return a * b
 
 
-def dividir(a, b):
+async def dividir(a, b):
     if b == 0:
         return "Erro: divisão por zero!"
     return a / b
 
 
-def main():
+async def main():
     print("Calculadora Simples")
     print("Selecione a operação:")
     print("1 - Soma")
@@ -42,16 +39,21 @@ def main():
         return
 
     if escolha == '1':
-        print(f"Resultado: {somar(num1, num2)}")
+        resultado = await somar(num1, num2)
     elif escolha == '2':
-        print(f"Resultado: {subtrair(num1, num2)}")
+        resultado = await subtrair(num1, num2)
     elif escolha == '3':
-        print(f"Resultado: {multiplicar(num1, num2)}")
+        resultado = await multiplicar(num1, num2)
     elif escolha == '4':
-        print(f"Resultado: {dividir(num1, num2)}")
+        resultado = await dividir(num1, num2)
     else:
         print("Opção inválida!")
+        return
+
+    print(f"Resultado: {resultado}")
 
 
 if __name__ == "__main__":
-    main()
+    import asyncio
+
+    asyncio.run(main())
